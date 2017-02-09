@@ -131,7 +131,7 @@ class Video_Caption_Generator():
 
             if i == 0:
                 with tf.device('/cpu:0'):
-                    current_embed = tf.nn.embedding_lookup(self.Wemb, 13434*tf.ones([1], dtype=tf.int64))
+                    current_embed = tf.nn.embedding_lookup(self.Wemb, tf.ones([1], dtype=tf.int64))
 
             with tf.variable_scope("LSTM1"):
                 output1, state1 = self.lstm1(padding, state1)
@@ -283,9 +283,13 @@ def train():
     sess = tf.InteractiveSession()
     
     # my tensorflow version is 0.12.1, I write the saver with version 1.0
-    saver = tf.train.Saver(max_to_keep=50, write_version=1)
+    saver = tf.train.Saver(max_to_keep=100, write_version=1)
     train_op = tf.train.AdamOptimizer(learning_rate).minimize(tf_loss)
     tf.global_variables_initializer().run()
+
+    #new_saver = tf.train.Saver()
+    #new_saver = tf.train.import_meta_graph('./rgb_models/model-1000.meta')
+    #new_saver.restore(sess, tf.train.latest_checkpoint('./models/'))
 
     loss_fd = open('loss.txt', 'w')
     loss_to_draw = []
@@ -385,14 +389,17 @@ def train():
 
         if np.mod(epoch, 10) == 0:
             print "Epoch ", epoch, " is done. Saving the model ..."
-            saver.save(sess, os.path.join(model_path, 'model'), global_step=0)
+            saver.save(sess, os.path.join(model_path, 'model'), global_step=epoch)
 
     loss_fd.close()
 
-def test(model_path='./models/model-0'):
+def test(model_path='./models/model-100'):
     test_data = get_video_test_data(video_test_data_path, video_test_feat_path)
     test_videos = test_data['video_path'].unique()
+
     ixtoword = pd.Series(np.load('./data/ixtoword.npy').tolist())
+
+    bias_init_vector = np.load('./data/bias_init_vector.npy')
 
     model = Video_Caption_Generator(
             dim_image=dim_image,
@@ -402,14 +409,13 @@ def test(model_path='./models/model-0'):
             n_lstm_steps=n_frame_step,
             n_video_lstm_step=n_video_lstm_step,
             n_caption_lstm_step=n_caption_lstm_step,
-            bias_init_vector=None)
+            bias_init_vector=bias_init_vector)
 
     video_tf, video_mask_tf, caption_tf, probs_tf, last_embed_tf = model.build_generator()
 
     sess = tf.InteractiveSession()
 
-    #saver = tf.train.Saver()
-    saver = tf.train.import_meta_graph('./models/model-0.meta')
+    saver = tf.train.Saver()
     saver.restore(sess, model_path)
 
     test_output_txt_fd = open('S2VT_results.txt', 'w')
@@ -440,3 +446,4 @@ def test(model_path='./models/model-0'):
         print generated_sentence,'\n'
         test_output_txt_fd.write(video_feat_path + '\n')
         test_output_txt_fd.write(generated_sentence + '\n\n')
+
