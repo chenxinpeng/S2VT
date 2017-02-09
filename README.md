@@ -56,4 +56,5 @@ $ python eval.py
 ```
 
 ##Attention
-Please feel free to ask me if you have questions.
+1. Please feel free to ask me if you have questions.
+2. I only commit the RGB parts of all my code, you can modify the code to use optical flow features
