@@ -27,4 +27,22 @@ You should change the training parameters and directory path in the `model_rgb.p
 ```
 After testing, a text file, "S2VT_results.txt" will generated.
 
-###Last, 
+###Last, evaluate results with COCO
+We evaluate the generation results with [coco-caption tools](https://github.com/tylin/coco-caption).
+
+You can run the shell `get_coco_tools.sh` get download the coco tools:
+```bash
+$ ./get_coco_tools.sh
+```
+After this, generate the reference json file from ground truth CSV file:
+```bash
+$ python create_reference.py 
+```
+Then, generate the results json file from `S2VT_results.txt` file:
+```bash
+$ python create_result_json.py
+```
+Finally, you can evaluate the generation results:
+```bash
+$ python eval.py
+```
