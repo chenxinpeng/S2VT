@@ -1,4 +1,12 @@
 # S2VT
+
+## Acknowledgement
+I modified the code from [jazzsaxmafia](https://github.com/jazzsaxmafia/video_to_sequence), and I correct some problems in his code.
+
+## Requirement
+ - Tensorflow 0.12
+ - Keras
+
 ## Tensorflow implement of paper: Sequence to Sequence: Video to Text
 
 ###First, download MSVD dataset, and extract video features:
@@ -46,3 +54,6 @@ Finally, you can evaluate the generation results:
 ```bash
 $ python eval.py
 ```
+
+##Attention
+Please feel free to ask me if you have questions.
