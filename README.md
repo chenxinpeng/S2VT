@@ -1,5 +1,4 @@
-# S2VT
-
+# S2VT: Sequence to Sequence: Video to Text
 ## Acknowledgement
 I modified the code from [jazzsaxmafia](https://github.com/jazzsaxmafia/video_to_sequence), and I correct some problems in his code.
 
@@ -7,7 +6,7 @@ I modified the code from [jazzsaxmafia](https://github.com/jazzsaxmafia/video_to
  - Tensorflow 0.12
  - Keras
 
-## Tensorflow implement of paper: Sequence to Sequence: Video to Text
+## How to use my code
 
 ###First, download MSVD dataset, and extract video features:
 ```bash
@@ -57,4 +56,4 @@ $ python eval.py
 
 ##Attention
 1. Please feel free to ask me if you have questions.
-2. I only commit the RGB parts of all my code, you can modify the code to use optical flow features
+2. I only commit the RGB parts of all my code, you can modify the code to use optical flow features.
