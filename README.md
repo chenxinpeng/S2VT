@@ -1,6 +1,6 @@
 # S2VT: Sequence to Sequence: Video to Text
 ## Acknowledgement
-I modified the code from [jazzsaxmafia](https://github.com/jazzsaxmafia/video_to_sequence), and I correct some problems in his code.
+I modified the code from [jazzsaxmafia](https://github.com/jazzsaxmafia/video_to_sequence), and I have fixed [some problems](https://github.com/jazzsaxmafia/video_to_sequence/issues/9) in his code.
 
 ## Requirement
  - Tensorflow 0.12
