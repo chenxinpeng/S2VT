@@ -58,11 +58,11 @@ $ python eval.py
 |Model|METEOR|
 |---|:---:|
 |S2VT(ICCV 2015)||
-|-RGB(VGG)|:29.2:|
-|-Optical Flow(AlexNet)|:24.3:|
-|Our model||
-|-RGB(VGG)|:28.1:|
-|-Optical Flow(AlexNet)|:23.3:|
+|-RGB(VGG)|29.2|
+|-Optical Flow(AlexNet)|24.3|
+|**Our model**||
+|-RGB(VGG)|**28.1**|
+|-Optical Flow(AlexNet)|**23.3**|
 
 ## Attention
 1. Please feel free to ask me if you have questions.
