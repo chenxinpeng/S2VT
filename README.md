@@ -54,6 +54,16 @@ Finally, you can evaluate the generation results:
 $ python eval.py
 ```
 
-##Attention
+## Results
+|Model|METEOR|
+|---|:---:|
+|S2VT(ICCV 2015)||
+|-RGB(VGG)|:29.2:|
+|-Optical Flow(AlexNet)|:24.3:|
+|Our model||
+|-RGB(VGG)|:28.1:|
+|-Optical Flow(AlexNet)|:23.3:|
+
+## Attention
 1. Please feel free to ask me if you have questions.
 2. I only commit the RGB parts of all my code, you can modify the code to use optical flow features.
