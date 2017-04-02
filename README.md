@@ -8,7 +8,7 @@ I modified the code from [jazzsaxmafia](https://github.com/jazzsaxmafia/video_to
 
 ## How to use my code
 
-###First, download MSVD dataset, and extract video features:
+### First, download MSVD dataset, and extract video features:
 ```bash
 $ python extract_feats.py
 ```
@@ -27,14 +27,14 @@ When in the ipython environment, then:
 ```
 You should change the training parameters and directory path in the `model_rgb.py`
 
-###Third, test the model, choose a trained model, then:
+### Third, test the model, choose a trained model, then:
 ```bash
 >>> import model_rgb
 >>> model_rgb.test()
 ```
 After testing, a text file, "S2VT_results.txt" will generated.
 
-###Last, evaluate results with COCO
+### Last, evaluate results with COCO
 We evaluate the generation results with [coco-caption tools](https://github.com/tylin/coco-caption).
 
 You can run the shell `get_coco_tools.sh` get download the coco tools:
