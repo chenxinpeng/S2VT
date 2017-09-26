@@ -16,7 +16,7 @@ After this operation, you should split the features into two parts:
  - `train_features`
  - `test_features`
 
-###Second, train the model:
+### Second, train the model:
 ```bash
 $ CUDA_VISIBLE_DEVICES=0 ipython
 ```
