@@ -1,4 +1,7 @@
 # S2VT: Sequence to Sequence: Video to Text
+## Note
+This repository is not being actively maintained due to lack of time and interest. My sincerest apologies to the open source community for allowing this project to stagnate. I hope it was useful for some of you as a jumping-off point. 
+
 ## Acknowledgement
 I modified the code from [jazzsaxmafia](https://github.com/jazzsaxmafia/video_to_sequence), and I have fixed [some problems](https://github.com/jazzsaxmafia/video_to_sequence/issues/9) in his code.
 
